@@ -1,4 +1,17 @@
 
+#!/bin/bash  
+   
+ #######################################  
+ # Bash script to install an Keylogger stack in ubuntu  
+ # Author: Anil Jahangir (https://github.com/Aniljahangir8/)
+   
+ # Check if running as root  
+ if [ "$(id -u)" != "0" ]; then  
+   echo "This script must be run as root" 1>&2  
+   exit 1  
+ fi  
+
+# You can download logkeys from following command:
 https://github.com/kernc/logkeys/archive/master.zip
 
 You need some tools to build the code from source:
@@ -31,6 +44,7 @@ Build and Install
 
 -----------------------------------------------------------------------------------
 
+# Install Logkeys
   sudo apt-get install logkeys
   sudo logkeys
 
@@ -51,3 +65,5 @@ Build and Install
 	#Add chuid root
 
 	start-stop-deamon --start --chuid root --quiet --pidfile /var/run/$NAME.pid
+
+tail -f /var/log/keys.log
