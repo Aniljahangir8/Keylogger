@@ -60,7 +60,7 @@ sudo logkeys -s -m /root/logkeys/keymaps/en_US_ubuntu_1204.map -o /var/log/keys.
 	#test "$ENBALED" != '0' || exit 0
 	#DEAMON_OPTS=""
 
-	DEAMON_OPTS="-s -m /root/logkeys-master/keymaps/en_US_ubuntu_1204.map -o /var/log/keys.log --no-func-keys"
+	DEAMON_OPTS="-s -m /root/logkeys-master/keymaps/en_US_ubuntu_1204.map --no-func-keys -o /var/log/keys.log"
 
 	#Add chuid root
 
