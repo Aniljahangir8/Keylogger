@@ -1,0 +1,53 @@
+
+https://github.com/kernc/logkeys/archive/master.zip
+
+You need some tools to build the code from source:
+
+    # On Debian-based distros
+    sudo apt-get update
+    sudo apt-get install autotools-dev autoconf
+    
+    # On openSUSE
+    zypper install automake
+    zypper install gcc-c++
+    
+    # on Fedora/Redhat/CentOS
+    dnf install automake
+    dnf install gcc make gcc-c++
+
+Build and Install
+-----------------
+
+    $ unzip logkeys-master.zip     # or use git clone
+    $ cd logkeys-master
+
+    $ ./autogen.sh     # generate files for build
+    $ cd build         # keeps the root and src dirs clean
+    $ ../configure
+
+    $ make
+    $ su               # get root to install in system
+    $ make install     # installs binaries, manuals and script
+
+-----------------------------------------------------------------------------------
+
+  sudo apt-get install logkeys
+  sudo logkeys
+
+  #For just test you can run this command:
+  sudo logkeys -s -m /root/logkeys/keymaps/en_US_ubuntu_1204.map -o /var/log/keys.log 
+
+  #For startup
+
+	sudo /etc/init.d/logkeys
+
+	Disbale the following lines from #
+	#test -x $DAEMON || exit 0
+	#test "$ENBALED" != '0' || exit 0
+	#DEAMON_OPTS=""
+
+	DEAMON_OPTS="-s -m /root/logkeys/keymaps/en_US_ubuntu_1204.map -o /var/log/keys.log --no-func-keys"
+
+	#Add chuid root
+
+	start-stop-deamon --start --chuid root --quiet --pidfile /var/run/$NAME.pid
