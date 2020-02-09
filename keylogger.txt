@@ -17,16 +17,16 @@ https://github.com/kernc/logkeys/archive/master.zip
 You need some tools to build the code from source:
 
     # On Debian-based distros
-    sudo apt-get update
-    sudo apt-get install autotools-dev autoconf
+sudo apt-get update
+sudo apt-get install autotools-dev autoconf
     
     # On openSUSE
-    zypper install automake
-    zypper install gcc-c++
+zypper install automake
+zypper install gcc-c++
     
     # on Fedora/Redhat/CentOS
-    dnf install automake
-    dnf install gcc make gcc-c++
+dnf install automake
+dnf install gcc make gcc-c++
 
 Build and Install
 -----------------
@@ -45,22 +45,22 @@ Build and Install
 -----------------------------------------------------------------------------------
 
 # Install Logkeys
-  sudo apt-get install logkeys
-  sudo logkeys
+sudo apt-get install logkeys
+sudo logkeys
 
-  #For just test you can run this command:
-  sudo logkeys -s -m /root/logkeys/keymaps/en_US_ubuntu_1204.map -o /var/log/keys.log 
+#For just test you can run this command:
+sudo logkeys -s -m /root/logkeys/keymaps/en_US_ubuntu_1204.map -o /var/log/keys.log
 
   #For startup
 
-	sudo /etc/init.d/logkeys
+	sudo vim /etc/init.d/logkeys
 
 	Disbale the following lines from #
 	#test -x $DAEMON || exit 0
 	#test "$ENBALED" != '0' || exit 0
 	#DEAMON_OPTS=""
 
-	DEAMON_OPTS="-s -m /root/logkeys/keymaps/en_US_ubuntu_1204.map -o /var/log/keys.log --no-func-keys"
+	DEAMON_OPTS="-s -m /root/logkeys-master/keymaps/en_US_ubuntu_1204.map -o /var/log/keys.log --no-func-keys"
 
 	#Add chuid root
 
